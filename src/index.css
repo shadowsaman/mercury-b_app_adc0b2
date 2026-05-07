@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Mercury Design Tokens */
+    --color-mercury-blue: #5266eb;
+    --color-ghost-blue: #cdddff;
+    --color-deep-space: #171721;
+    --color-midnight-slate: #1e1e2a;
+    --color-graphite: #272735;
+    --color-lead: #70707d;
+    --color-starlight: #ededf3;
+    --color-silver: #c3c3cc;
+    --color-pure-white: #ffffff;
+
+    /* Shadcn CSS Variables mapped to Mercury palette */
+    --background: 240 16% 11%;
+    --foreground: 240 40% 95%;
+
+    --card: 240 18% 14%;
+    --card-foreground: 240 40% 95%;
+
+    --popover: 240 18% 16%;
+    --popover-foreground: 240 40% 95%;
+
+    --primary: 233 80% 62%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 15% 19%;
+    --secondary-foreground: 240 40% 80%;
+
+    --muted: 240 15% 19%;
+    --muted-foreground: 240 10% 64%;
+
+    --accent: 222 100% 90%;
+    --accent-foreground: 233 80% 30%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 26%;
+    --input: 240 15% 19%;
+    --ring: 233 80% 62%;
+
+    --radius: 0px;
+
+    /* Sidebar tokens */
+    --sidebar-background: 240 16% 11%;
+    --sidebar-foreground: 240 40% 95%;
+    --sidebar-primary: 233 80% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 15% 19%;
+    --sidebar-accent-foreground: 240 40% 95%;
+    --sidebar-border: 240 10% 20%;
+    --sidebar-ring: 233 80% 62%;
+
+    /* Typography */
+    --font-arcadiadisplay: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-arcadia: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Type Scale */
+    --text-caption: 12px;
+    --leading-caption: 1.5;
+    --tracking-caption: 0.24px;
+    --text-body-sm: 14px;
+    --leading-body-sm: 1.5;
+    --tracking-body-sm: 0.28px;
+    --text-body: 16px;
+    --leading-body: 1.5;
+    --tracking-body: 0.16px;
+    --text-subheading: 18px;
+    --leading-subheading: 1.4;
+    --text-heading-sm: 21px;
+    --leading-heading-sm: 1.35;
+    --text-heading: 32px;
+    --leading-heading: 1.2;
+    --text-heading-lg: 49px;
+    --leading-heading-lg: 1.15;
+    --text-display: 65px;
+    --leading-display: 1.1;
+    --tracking-display: 0.65px;
+
+    /* Spacing */
+    --spacing-4: 4px;
+    --spacing-8: 8px;
+    --spacing-12: 12px;
+    --spacing-16: 16px;
+    --spacing-20: 20px;
+    --spacing-24: 24px;
+    --spacing-32: 32px;
+    --spacing-40: 40px;
+    --spacing-56: 56px;
+    --spacing-72: 72px;
+    --spacing-80: 80px;
+    --spacing-112: 112px;
+    --spacing-128: 128px;
+
+    /* Named Radii */
+    --radius-cards: 0px;
+    --radius-inputs: 32px;
+    --radius-buttons: 32px;
+    --radius-containers: 4px;
+
+    /* Surfaces */
+    --surface-abyss: #171721;
+    --surface-surface: #1e1e2a;
+    --surface-interactive: #272735;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: var(--font-arcadia);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-deep-space);
+    color: var(--color-starlight);
+    font-family: var(--font-arcadia);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-arcadiadisplay);
+    font-weight: 300;
+    line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  /* Mercury-specific utility classes */
+  .mercury-card {
+    background-color: var(--color-midnight-slate);
+    border: 1px solid rgba(112, 112, 125, 0.15);
+    border-radius: var(--radius-cards);
+  }
+
+  .mercury-surface {
+    background-color: var(--color-midnight-slate);
+  }
+
+  .mercury-interactive {
+    background-color: var(--color-graphite);
+  }
+
+  .mercury-text-primary {
+    color: var(--color-starlight);
+  }
+
+  .mercury-text-secondary {
+    color: var(--color-silver);
+  }
+
+  .mercury-accent {
+    color: var(--color-mercury-blue);
+  }
+
+  .mercury-border {
+    border-color: rgba(112, 112, 125, 0.2);
+  }
+
+  /* Pill button base */
+  .pill-btn {
+    border-radius: var(--radius-buttons);
+    padding: 16px 24px;
+    font-family: var(--font-arcadia);
+    font-weight: 480;
+    transition: all 150ms ease;
+  }
+
+  /* Mercury Blue accent top border glow */
+  .kpi-glow {
+    position: relative;
+  }
+
+  .kpi-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-mercury-blue), transparent);
+    border-radius: var(--radius-cards) var(--radius-cards) 0 0;
+  }
+
+  /* Status pulse animation */
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+
+  .status-pulse {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  /* Shimmer for skeleton */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--color-graphite) 25%,
+      rgba(82, 102, 235, 0.08) 50%,
+      var(--color-graphite) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.8s ease-in-out infinite;
+  }
+
+  /* Number count up animation */
+  @keyframes count-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .count-animate {
+    animation: count-up 0.4s ease-out forwards;
+  }
+
+  /* Sidebar active state */
+  .nav-active {
+    position: relative;
+    color: var(--color-mercury-blue);
+    background-color: rgba(82, 102, 235, 0.1);
+  }
+
+  .nav-active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--color-mercury-blue);
+    border-radius: 0 2px 2px 0;
+  }
+
+  /* Ghost blue button */
+  .ghost-btn {
+    background-color: rgba(205, 221, 255, 0.12);
+    color: var(--color-starlight);
+    border-radius: 40px;
+    padding: 8px 20px;
+    font-family: var(--font-arcadia);
+    transition: background-color 150ms ease;
+  }
+
+  .ghost-btn:hover {
+    background-color: rgba(205, 221, 255, 0.2);
+  }
+
+  /* Monospace helper */
+  .mono {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-deep-space);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-lead);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(112, 112, 125, 0.8);
+  }
+
+  /* Focus ring override for Mercury style */
+  .focus-mercury:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-mercury-blue);
+  }
+}
