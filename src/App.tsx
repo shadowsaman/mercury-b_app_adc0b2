@@ -43,7 +43,10 @@ function PageFallback() {
   return (
     <div className="flex items-center justify-center min-h-screen" style={{ backgroundColor: 'var(--color-deep-space)' }}>
       <div className="flex flex-col items-center gap-4">
-        <div className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin" style={{ borderColor: 'var(--color-mercury-blue)', borderTopColor: 'transparent' }} />
+        <div
+          className="w-10 h-10 rounded-full border-2 border-t-transparent animate-spin"
+          style={{ borderColor: 'var(--color-mercury-blue)', borderTopColor: 'transparent' }}
+        />
         <p className="text-sm" style={{ color: 'var(--color-silver)' }}>Loading module...</p>
       </div>
     </div>

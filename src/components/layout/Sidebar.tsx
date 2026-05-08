@@ -85,7 +85,7 @@ export function Sidebar({ onNavClick }: SidebarProps) {
       >
         <div
           className="flex items-center justify-center w-8 h-8 rounded-sm flex-shrink-0"
-          style={{ backgroundColor: 'var(--color-mercury-blue)' }}
+          style={{ backgroundColor: '#eab308' }}
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M2 13L5.5 6L8 10L10.5 6L14 13" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />

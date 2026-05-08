@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ['class'],
+  darkMode: ['attribute', '[data-theme="dark"]'],
   content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
   theme: {
     container: {
@@ -64,6 +64,17 @@ export default {
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
+        },
+        /* Mercury semantic aliases for light/dark awareness */
+        mercury: {
+          blue: '#5266eb',
+          'ghost-blue': '#cdddff',
+          'deep-space': 'var(--color-deep-space)',
+          slate: 'var(--color-midnight-slate)',
+          graphite: 'var(--color-graphite)',
+          lead: 'var(--color-lead)',
+          starlight: 'var(--color-starlight)',
+          silver: 'var(--color-silver)',
         },
       },
       borderRadius: {

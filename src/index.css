@@ -5,7 +5,9 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  /* ─── DARK THEME (default) ─────────────────────────────────── */
+  :root,
+  [data-theme='dark'] {
     /* Mercury Design Tokens */
     --color-mercury-blue: #5266eb;
     --color-ghost-blue: #cdddff;
@@ -17,35 +19,31 @@
     --color-silver: #c3c3cc;
     --color-pure-white: #ffffff;
 
-    /* Shadcn CSS Variables mapped to Mercury palette */
+    /* Surfaces */
+    --surface-abyss: #171721;
+    --surface-surface: #1e1e2a;
+    --surface-interactive: #272735;
+
+    /* Shadcn CSS Variables mapped to Mercury dark palette */
     --background: 240 16% 11%;
     --foreground: 240 40% 95%;
-
     --card: 240 18% 14%;
     --card-foreground: 240 40% 95%;
-
     --popover: 240 18% 16%;
     --popover-foreground: 240 40% 95%;
-
     --primary: 233 80% 62%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 240 15% 19%;
     --secondary-foreground: 240 40% 80%;
-
     --muted: 240 15% 19%;
     --muted-foreground: 240 10% 64%;
-
     --accent: 222 100% 90%;
     --accent-foreground: 233 80% 30%;
-
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-
     --border: 240 10% 26%;
     --input: 240 15% 19%;
     --ring: 233 80% 62%;
-
     --radius: 0px;
 
     /* Sidebar tokens */
@@ -57,8 +55,63 @@
     --sidebar-accent-foreground: 240 40% 95%;
     --sidebar-border: 240 10% 20%;
     --sidebar-ring: 233 80% 62%;
+  }
 
-    /* Typography */
+  /* ─── LIGHT THEME ──────────────────────────────────────────── */
+  [data-theme='light'] {
+    /* Mercury Design Tokens — light overrides */
+    --color-mercury-blue: #5266eb;
+    --color-ghost-blue: #3a52c9;
+    --color-deep-space: #f0f0f8;
+    --color-midnight-slate: #ffffff;
+    --color-graphite: #e8e8f2;
+    --color-lead: #9898a8;
+    --color-starlight: #1a1a2e;
+    --color-silver: #4a4a5e;
+    --color-pure-white: #ffffff;
+
+    /* Surfaces */
+    --surface-abyss: #e8e8f5;
+    --surface-surface: #ffffff;
+    --surface-interactive: #f0f0fa;
+
+    /* Shadcn CSS Variables mapped to Mercury light palette */
+    --background: 240 20% 96%;
+    --foreground: 240 40% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 40% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 40% 12%;
+    --primary: 233 80% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 15% 92%;
+    --secondary-foreground: 240 40% 20%;
+    --muted: 240 15% 94%;
+    --muted-foreground: 240 10% 40%;
+    --accent: 233 80% 95%;
+    --accent-foreground: 233 80% 30%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 10% 82%;
+    --input: 240 15% 90%;
+    --ring: 233 80% 62%;
+    --radius: 0px;
+
+    /* Sidebar tokens */
+    --sidebar-background: 240 20% 96%;
+    --sidebar-foreground: 240 40% 12%;
+    --sidebar-primary: 233 80% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 15% 92%;
+    --sidebar-accent-foreground: 240 40% 20%;
+    --sidebar-border: 240 10% 82%;
+    --sidebar-ring: 233 80% 62%;
+  }
+}
+
+@layer base {
+  /* Typography */
+  :root {
     --font-arcadiadisplay: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-arcadia: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
@@ -104,15 +157,8 @@
     --radius-inputs: 32px;
     --radius-buttons: 32px;
     --radius-containers: 4px;
-
-    /* Surfaces */
-    --surface-abyss: #171721;
-    --surface-surface: #1e1e2a;
-    --surface-interactive: #272735;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
@@ -130,6 +176,7 @@
     font-size: var(--text-body);
     line-height: var(--leading-body);
     letter-spacing: var(--tracking-body);
+    transition: background-color 200ms ease, color 200ms ease;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -145,14 +192,21 @@
     background-color: var(--color-midnight-slate);
     border: 1px solid rgba(112, 112, 125, 0.15);
     border-radius: var(--radius-cards);
+    transition: background-color 200ms ease, border-color 200ms ease;
+  }
+
+  [data-theme='light'] .mercury-card {
+    border-color: rgba(112, 112, 125, 0.2);
   }
 
   .mercury-surface {
     background-color: var(--color-midnight-slate);
+    transition: background-color 200ms ease;
   }
 
   .mercury-interactive {
     background-color: var(--color-graphite);
+    transition: background-color 200ms ease;
   }
 
   .mercury-text-primary {
@@ -265,6 +319,14 @@
     background-color: rgba(205, 221, 255, 0.2);
   }
 
+  [data-theme='light'] .ghost-btn {
+    background-color: rgba(82, 102, 235, 0.10);
+  }
+
+  [data-theme='light'] .ghost-btn:hover {
+    background-color: rgba(82, 102, 235, 0.18);
+  }
+
   /* Monospace helper */
   .mono {
     font-family: 'Courier New', Courier, monospace;
@@ -294,5 +356,26 @@
   .focus-mercury:focus-visible {
     outline: none;
     box-shadow: 0 0 0 2px var(--color-mercury-blue);
+  }
+
+  /* Theme transition — smooth color changes across all elements */
+  *,
+  *::before,
+  *::after {
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease,
+      fill 200ms ease,
+      stroke 200ms ease;
+  }
+
+  /* Exclude transitions on elements that should animate independently */
+  .no-theme-transition,
+  .no-theme-transition *,
+  [class*='animate-'],
+  .status-pulse,
+  .skeleton-shimmer {
+    transition: none !important;
   }
 }

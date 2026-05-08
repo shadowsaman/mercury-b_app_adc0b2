@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Search, Bell, ChevronRight, Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ThemeToggleButton } from '@/components/layout/ThemeToggleButton';
 
 const routeLabels: Record<string, string[]> = {
   '/dashboard': ['Dashboard'],
@@ -84,7 +85,7 @@ export function Header({ onMenuClick }: HeaderProps) {
         </nav>
       </div>
 
-      {/* Right: Search + Notifications + User */}
+      {/* Right: Search + Theme Toggle + Notifications + User */}
       <div className="flex items-center gap-3">
         {/* Search */}
         <div className="relative hidden sm:flex items-center">
@@ -107,12 +108,13 @@ export function Header({ onMenuClick }: HeaderProps) {
           />
         </div>
 
+        {/* Theme Toggle */}
+        <ThemeToggleButton />
+
         {/* Notifications */}
         <button
           className="relative flex items-center justify-center w-9 h-9 rounded-sm transition-colors duration-150"
-          style={{
-            backgroundColor: 'transparent',
-          }}
+          style={{ backgroundColor: 'transparent' }}
           aria-label="Notifications"
         >
           <Bell className="h-5 w-5" style={{ color: 'var(--color-silver)' }} />
